@@ -26,7 +26,7 @@ export default {
     'Segoe UI Symbol', 
     'Noto Color Emoji'
   ],
-      'sans': [
+    'sans': [
     'Inter', 
     'ui-sans-serif', 
     'system-ui', 
@@ -45,5 +45,7 @@ export default {
   ]
     }
   },
-  plugins: [require('flowbite/plugin')],
+  plugins: [require('flowbite/plugin'),
+  require('@formkit/tailwindcss').default],
+  
 }

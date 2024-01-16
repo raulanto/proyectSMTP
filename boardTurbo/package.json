@@ -15,6 +15,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@formkit/tailwindcss": "^1.4.0",
+    "@formkit/vue": "^1.4.0",
     "axios": "^1.6.5",
     "flowbite": "^2.2.1",
     "pinia": "^2.1.7",
