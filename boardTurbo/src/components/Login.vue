@@ -23,14 +23,15 @@ async function login(formdata: any) {
     const response = await loginServices(credenciales.value)
 
     if (response?.status === 200 && response?.data !== '') {
-      // localStorage.setItem('token', response?.data)
-      // localStorage.setItem('sesion', 'login')
-      // localStorage.setItem('username', loginData.value.username)
+     localStorage.setItem('token', response?.data)
+     localStorage.setItem('sesion', 'login')
+     localStorage.setItem('username',credenciales.value.password)
+     localStorage.setItem('password',credenciales.value.password)
       console.log(response?.data)
     } else if (response?.data === '') {
       alertError()
     }
-    console.log("el metodo post fue exelente su clave key es:",response?.data.token)
+    console.log("el metodo post fue exelente su clave key es:",response?.data.auth)
   } catch (error) {
     console.error(error)
   }
@@ -72,7 +73,6 @@ async function login(formdata: any) {
                 placeholder="example@gmail.com"
                 validation="required|email"
                 :config="{
-                  // config override applies to all nested FormKit components
                   classes: {
                     input:
                       'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500l',
@@ -90,7 +90,7 @@ async function login(formdata: any) {
             <div>
               <label
                 for="password"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                class="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white"
                 >Password</label
               >
               <FormKit
