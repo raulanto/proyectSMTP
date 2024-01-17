@@ -4,7 +4,9 @@
   <section class="bg-white dark:bg-gray-900">
     <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
       <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Correo</h2>
-      <FormKit type="form" :actions="false">
+      <!-- Inicio del formulario -->
+      <FormKit type="form" :actions="false"
+      >
         <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
           <div class="sm:col-span-2">
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -12,7 +14,7 @@
             >
             <FormKit
               type="email"
-              name="email"
+              name="from"
               placeholder="example@gmail.com"
               validation="required|email"
               :config="{
@@ -29,13 +31,14 @@
               }"
             />
           </div>
+          <!-- Destinatario -->
           <div class="w-full">
             <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >Para</label
             >
             <FormKit
               type="email"
-              name="email"
+              name="to"
               placeholder="example@gmail.com"
               validation="required|email"
               :config="{
@@ -53,6 +56,7 @@
             />
           </div>
 
+          <!-- subject -->
           <div>
             <label
               for="item-weight"
@@ -61,7 +65,7 @@
             >
             <FormKit
               type="text"
-              name="email"
+              name="subject"
               placeholder="asunto del correo"
               validation="required|text"
               :config="{
@@ -79,13 +83,16 @@
           </div>
           <div class="sm:col-span-2">
             <label
-              for="description"
+              for="content"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >Contenido del correo</label
             >
+            <!-- content  -->
             <FormKit
               type="textarea"
-              name="instructions"
+              name="content"
+              id="content"
+              validation="required|text"
               :config="{
                 classes: {
                   input:
@@ -95,20 +102,22 @@
                 }
               }"
               class=""
-              placeholder="Write a product description here..."
+              placeholder="hola esto es un mensaje del correo"
+              :validation-messages="{
+                required: 'Ingrese contenido para enviar el correo'
+              }"
             >
-
             </FormKit>
           </div>
+          <!-- Html content -->
           <div class="sm:col-span-2">
-            <label
-              for="description"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >Contenido html</label
             >
             <FormKit
               type="textarea"
-              name="instructions"
+              name="html_content"
+              validation="required|text"
               :config="{
                 classes: {
                   input:
@@ -117,23 +126,30 @@
                   message: 'text-red-500 text-xs'
                 }
               }"
-              class=""
-              placeholder="Write a product description here..."
+              :validation-messages="{
+                required: 'Ingrese contenido en html'
+              }"
+              placeholder="<h1>html_content</h1>"
             >
-
             </FormKit>
           </div>
-          
         </div>
+        <!--submit form  -->
         <div class="flex items-center space-x-4">
-          <button
+          <FormKit
             type="submit"
-            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            :classes="{
+              input:
+                'w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800',
+                message: 'text-xs text-gray-500',
+            }"
+
           >
-            Update product
-          </button>
+            Enviar
+          </FormKit>
         </div>
       </FormKit>
+      <!-- fin formulario -->
     </div>
   </section>
 </template>
