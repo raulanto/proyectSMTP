@@ -4,3 +4,4 @@ export interface authorize{
     password:String,
     no_expire:boolean
 }
+

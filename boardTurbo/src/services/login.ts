@@ -3,8 +3,6 @@
 import axios from 'axios';
 import { environment } from '@/environments/environment';
 
-
-
 export function loginServices(dataLogin: any) {
     const headers = { 'Content-Type': 'application/json','accept': 'application/json' };
     const url = `${environment.apiUrl}authorize`;

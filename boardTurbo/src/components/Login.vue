@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { loginServices } from '@/services/login' // Reemplaza la ruta según tu estructura de archivos
-
 import { ref } from 'vue'
 
 const credenciales = ref({
@@ -10,7 +9,7 @@ const credenciales = ref({
 })
 
 const alertError = () => {
-  console.error('Error en el login')
+  console.error('error')
 }
 
 async function login(formdata: any) {
@@ -23,19 +22,18 @@ async function login(formdata: any) {
     const response = await loginServices(credenciales.value)
 
     if (response?.status === 200 && response?.data !== '') {
-     localStorage.setItem('token', response?.data)
-     localStorage.setItem('sesion', 'login')
-     localStorage.setItem('username',credenciales.value.password)
-     localStorage.setItem('password',credenciales.value.password)
+      // localStorage.setItem('token', response?.data)
+      // localStorage.setItem('sesion', 'login')
+      // localStorage.setItem('username', credenciales.value.password)
+      // localStorage.setItem('password', credenciales.value.password)
       console.log(response?.data)
-    } else if (response?.data === '') {
+    } else if (response?.status === 401) {
       alertError()
     }
-    console.log("el metodo post fue exelente su clave key es:",response?.data.auth)
+    console.log('el metodo post fue exelente su clave key es:', response?.data.auth)
   } catch (error) {
-    console.error(error)
+    console.log('este error')
   }
-  alert('Logged in!')
 }
 </script>
 
@@ -132,3 +130,4 @@ async function login(formdata: any) {
     </div>
   </section>
 </template>
+
