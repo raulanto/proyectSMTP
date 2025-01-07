@@ -10,10 +10,10 @@ function  enviar(formdata:any){
 
 <template>
     <section class="bg-white dark:bg-gray-900">
-        <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
+        <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16 ">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Correo</h2>
             <!-- Inicio del formulario -->
-            <FormKit type="form" :actions="false" @submit="enviar">
+            <FormKit class="" type="form" :actions="false" @submit="enviar">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2">
                         <label

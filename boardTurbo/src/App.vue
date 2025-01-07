@@ -6,6 +6,6 @@ import Tables from './components/TablesForm.vue';
 </script>
 
 <template>
-<Tables></Tables>
+<FormularioEmail></FormularioEmail>
 </template>
 
